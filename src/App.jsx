@@ -1,5 +1,8 @@
 import { createSignal, createEffect } from "solid-js";
 
+// Get the API base URL from environment variable or default to localhost
+const BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8080";
+
 const App = () => {
   const [users, setUsers] = createSignal([]);
   const [name, setName] = createSignal("");
@@ -7,7 +10,7 @@ const App = () => {
   // Fetch users from API
   const fetchUsers = async () => {
     try {
-      const res = await fetch("http://localhost:8080/users");
+      const res = await fetch(`${BASE_URL}/users`);
       const data = await res.json();
       setUsers(data);
     } catch (error) {
@@ -20,7 +23,7 @@ const App = () => {
     if (!name().trim()) return;
 
     try {
-      await fetch("http://localhost:8080/users", {
+      await fetch(`${BASE_URL}/users`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name: name() }),
@@ -35,7 +38,7 @@ const App = () => {
   // Delete a user
   const deleteUser = async (id) => {
     try {
-      await fetch(`http://localhost:8080/users/${id}`, { method: "DELETE" });
+      await fetch(`${BASE_URL}/users/${id}`, { method: "DELETE" });
       fetchUsers(); // Refresh user list
     } catch (error) {
       console.error("Failed to delete user", error);
@@ -76,3 +79,4 @@ const App = () => {
 };
 
 export default App;
+
