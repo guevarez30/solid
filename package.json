@@ -1,8 +1,8 @@
 {
   "scripts": {
-    "start": "vite",
     "dev": "vite",
-    "build": "vite build"
+    "build": "vite build",
+  	"start": "npx http-server ./dist"
   },
   "devDependencies": {
     "autoprefixer": "^10",
