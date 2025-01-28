@@ -1,6 +1,6 @@
 import { createSignal, createEffect } from "solid-js";
 
-const BASE_URL='https://bun-api.railway.internal'
+const BASE_URL='http://bun-api.railway.internal'
 
 const App = () => {
   const [users, setUsers] = createSignal([]);
