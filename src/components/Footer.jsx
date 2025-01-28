@@ -1,6 +1,6 @@
 export function Footer() {
   return (
-    <footer class="footer p-10 bg-neutral text-neutral-content">
+    <footer class="footer p-10 bg-neutral text-neutral-content flex justify-around">
       <div>
         <span class="footer-title">Services</span>
         <a class="link link-hover">Ordering</a>
