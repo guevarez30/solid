@@ -1,4 +1,5 @@
 import { createSignal, createEffect } from "solid-js";
+import Theme from "./theme"
 
 // Get the API base URL from environment variable or default to localhost
 const BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8080";
@@ -51,6 +52,7 @@ const App = () => {
     <div class="p-6 max-w-lg mx-auto">
       <h1 class="text-2xl font-bold mb-4">User Management</h1>
 
+
       <div class="flex gap-2 mb-4">
         <input
           class="input input-bordered w-full"
@@ -62,6 +64,7 @@ const App = () => {
         <button class="btn btn-primary" onClick={createUser}>
           Add
         </button>
+      <Theme />
       </div>
 
       <ul class="space-y-2">
