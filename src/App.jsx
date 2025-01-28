@@ -1,6 +1,7 @@
 import { createSignal, createEffect } from "solid-js";
 
-const BASE_URL='http://bun-api.railway.internal'
+// Get the API base URL from environment variable or default to localhost
+const BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8080";
 
 const App = () => {
   const [users, setUsers] = createSignal([]);
